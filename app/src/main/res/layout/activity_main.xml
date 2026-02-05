@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootCoordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_primary"
+            android:title="@string/app_name"
+            android:textAlignment="viewStart"
+            android:titleTextColor="@color/white"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleCentered="false" />
+    </com.google.android.material.appbar.AppBarLayout>>
+
+    <!-- Occasion list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOccasions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false"
+        android:layout_marginTop="?attr/actionBarSize"
+        tools:listitem="@layout/occasion_card" />
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRunTestCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Run Test Check"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|start"
+        app:backgroundTint="@color/color_primary"
+        android:textColor="@android:color/white" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddOccasion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/add_event"
+        app:layout_anchorGravity="bottom|end"
+        app:tint="@android:color/white"
+        app:srcCompat="@drawable/add_icon"
+        app:backgroundTint="@color/color_primary"
+        android:layout_gravity="bottom|end" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/eventItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginHorizontal="2dp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    app:strokeColor="@color/color_primary_light"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- DATE BADGE -->
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/date_badge_bg"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/rvMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DEC"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/blue"
+                android:letterSpacing="0.05" />
+
+            <TextView
+                android:id="@+id/rvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="26"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/color_text_primary" />
+
+        </LinearLayout>
+
+        <!-- DETAILS -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/rvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Capt. Sharma"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_text_primary"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/rvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Birthday"
+                android:textSize="15sp"
+                android:textColor="@color/color_text_secondary"
+                android:maxLines="1"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">BrigadeBuddy</string>
+
+    <!-- Main screen -->
+    <string name="add_event">Add Event</string>
+    <string name="msg_event_deleted">Event deleted</string>
+    <string name="action_undo">UNDO</string>
+
+    <!-- Add/Edit screen titles -->
+    <string name="title_add_occasion">Add Occasion</string>
+    <string name="title_edit_occasion">Edit Occasion</string>
+
+    <!-- Labels -->
+    <string name="label_officer_name">Officer Name</string>
+    <string name="label_rank">Rank</string>
+    <string name="label_event_type">Event Type</string>
+    <string name="label_date">Date</string>
+    <string name="label_title">Title</string>
+    <string name="label_details_optional">Details (optional)</string>
+
+    <!-- Hints -->
+    <string name="hint_officer_name">Officer name</string>
+    <string name="hint_rank">Rank (e.g., Capt., Major)</string>
+    <string name="hint_event_title">Title (e.g., Birthday, Commissioning Day)</string>
+    <string name="hint_date">Date (DD-MM-YYYY)</string>
+    <string name="hint_details">Details (Optional) Additional notes or message</string>
+
+    <!-- Buttons -->
+    <string name="btn_save_event">Save Event</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#0000FF</color>
+    <color name="color_primary">#1E88E5</color>        <!-- Blue 600 -->
+    <color name="color_primary_dark">#1565C0</color>   <!-- Blue 800 -->
+    <color name="color_primary_light">#90CAF9</color>  <!-- Light Blue -->
+
+    <!-- Accent / secondary -->
+    <color name="color_accent">#FFC107</color>         <!-- Amber 500 -->
+
+    <!-- Background / surface -->
+    <color name="color_background">#F5F5F5</color>     <!-- Light grey -->
+    <color name="color_surface">#FFFFFF</color>        <!-- White -->
+
+    <!-- Text -->
+    <color name="color_text_primary">#212121</color>   <!-- Very dark grey -->
+    <color name="color_text_secondary">#757575</color> <!-- Grey -->
+
+    <!-- Error / delete -->
+    <color name="color_error">#D32F2F</color>
+</resources>
