@@ -19,4 +19,10 @@ interface EventDao {
 
     @Query("SELECT * FROM events WHERE id = :id")
     suspend fun getEventById(id: Long): EventEntity?
+
+    @Query("SELECT * FROM events WHERE personGroupId = :groupId")
+    suspend fun getEventsByGroupId(groupId: Long): List<EventEntity>
+
+    @Query("DELETE FROM events WHERE personGroupId = :groupId")
+    suspend fun deleteEventsByGroupId(groupId: Long)
 }

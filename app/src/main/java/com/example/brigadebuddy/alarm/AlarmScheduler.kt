@@ -25,7 +25,7 @@ object DailyAlarmScheduler {
 
         val calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            add(Calendar.MINUTE, 2) // ⏱ TEST DELAY
+            add(Calendar.MINUTE, 1) // ⏱ TEST DELAY
         }
 
         Log.d("TestAlarm", "Test alarm scheduled for: ${calendar.time}")
@@ -60,6 +60,7 @@ object DailyAlarmScheduler {
             set(Calendar.HOUR_OF_DAY, 8)
             set(Calendar.MINUTE, 0)
             set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
 
             // If 8 AM already passed today → schedule for tomorrow
             if (timeInMillis <= System.currentTimeMillis()) {

@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
     private fun deleteEventFromDb(event: EventEntity) {
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
-                eventDao.deleteEvent(event)
+                eventDao.deleteEventsByGroupId(event.personGroupId)
             }
         }
     }
@@ -180,7 +180,7 @@ class MainActivity : AppCompatActivity() {
                 // Show Snackbar with UNDO
                 val snackbar = Snackbar.make(
                     binding.rootCoordinator,  // make sure your root CoordinatorLayout has this id
-                    "Event deleted",
+                    "Profile deleted",
                     Snackbar.LENGTH_LONG
                 )
 
@@ -194,9 +194,14 @@ class MainActivity : AppCompatActivity() {
                 snackbar.addCallback(object : Snackbar.Callback() {
                     override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
                         super.onDismissed(transientBottomBar, event)
-                        // If dismissed NOT by "UNDO", delete from DB
+
                         if (event != DISMISS_EVENT_ACTION) {
-                            deleteEventFromDb(deletedEvent)
+                            lifecycleScope.launch {
+                                withContext(Dispatchers.IO) {
+                                    eventDao.deleteEventsByGroupId(deletedEvent.personGroupId)
+                                }
+                                loadEvents()   // 🔥 refresh RecyclerView
+                            }
                         }
                     }
                 })

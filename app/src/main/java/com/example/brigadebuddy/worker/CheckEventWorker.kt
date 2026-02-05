@@ -2,6 +2,8 @@ package com.example.brigadebuddy.worker
 
 import android.Manifest
 import android.annotation.SuppressLint
+import com.example.brigadebuddy.model.RelationType
+import com.example.brigadebuddy.model.Gender
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -90,19 +92,45 @@ class CheckEventsWorker(
         years: Int,
         ordinal: String
     ): String {
-        val rankAndName = "${event.rank} ${event.firstname}".trim()
 
-        return when (event.eventType.uppercase()) {
-            "BIRTHDAY" ->
-                "Tomorrow is $rankAndName\u2019s $ordinal birthday. Don\u2019t forget to wish them!"
+        val officer = "${event.rank} ${event.firstname}".trim()
 
-            "ANNIVERSARY" ->
-                "Tomorrow is $rankAndName\u2019s $ordinal ${event.title.lowercase()}. Don\u2019t forget to wish them!"
+        return when (event.relationType) {
 
-            else ->
-                "Tomorrow is $rankAndName\u2019s $ordinal ${event.title.lowercase()}."
+            RelationType.SELF -> {
+                "Tomorrow is $officer’s $ordinal birthday. Don’t forget to wish them!"
+            }
+
+            RelationType.SPOUSE -> {
+                val relation =
+                    if (event.gender == Gender.MALE) "husband"
+                    else "wife"
+
+                "Tomorrow is $officer’s $relation ${event.relatedName}’s $ordinal birthday."
+            }
+
+            RelationType.CHILD -> {
+                val relation =
+                    if (event.gender == Gender.MALE) "son"
+                    else "daughter"
+
+                "Tomorrow is $officer’s $relation ${event.relatedName}’s $ordinal birthday."
+            }
+
+            RelationType.ANNIVERSARY -> {
+                "Tomorrow is $officer & ${event.relatedName}’s $ordinal anniversary."
+            }
+
+            RelationType.WORK -> {
+                "Tomorrow is $officer’s $ordinal work anniversary."
+            }
+
+            else -> {
+                "Tomorrow is $officer’s $ordinal ${event.title.lowercase()}."
+            }
         }
     }
+
 
     private fun hasPostNotificationPermission(): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

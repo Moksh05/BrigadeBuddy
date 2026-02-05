@@ -6,19 +6,31 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "events")
 data class EventEntity(
+
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
 
+    // 🔹 GROUPING (NEW)
+    val personGroupId: Long = 0L,
+
+    // 🔹 OFFICER INFO (existing)
     val firstname: String,
     val lastname: String,
     val rank: String,
-    val eventType: String,   // e.g. "BIRTHDAY"
 
-    val day: Int,            // 1–31
-    val month: Int,          // 1–12
-    val year: Int,           // YYYY
+    // 🔹 RELATION INFO (NEW)
+    val relationType: String,      // SELF / SPOUSE / CHILD / WORK / ANNIVERSARY
+    val relatedName: String? = null,
+    val gender: String? = null,    // for spouse/child
 
-    val title: String,       // e.g. "Birthday"
+    // 🔹 EVENT INFO (existing)
+    val eventType: String,         // BIRTHDAY / ANNIVERSARY / OTHER
+
+    val day: Int,
+    val month: Int,
+    val year: Int,
+
+    val title: String,
     val details: String? = null,
 
     val isActive: Boolean = true,
